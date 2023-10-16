@@ -8,7 +8,6 @@
 <body>
     <?php
       require_once './conexao.php';
-      echo'teste';
     ?>
 </body>
 </html>
