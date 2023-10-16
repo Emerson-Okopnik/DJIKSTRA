@@ -11,8 +11,6 @@ $sConexao   = "host=$sHost
                user=$sUser
                password=$sPassword";
 
-
-
 try {
   $oConexao   = pg_connect($sConexao);
 } catch(Exception $e) {
