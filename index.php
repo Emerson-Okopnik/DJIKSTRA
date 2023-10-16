@@ -8,7 +8,7 @@
 <body>
     <?php
       require_once './conexao.php';
-      echo $oConexao;
+      echo'teste';
     ?>
 </body>
 </html>

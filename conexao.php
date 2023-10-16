@@ -11,5 +11,11 @@ $sConexao   = "host=$sHost
                user=$sUser
                password=$sPassword";
 
-$oConexao   = pg_connect($sConexao);
 
+
+try {
+  $oConexao   = pg_connect($sConexao);
+  echo 'asd1';
+} catch(Exception $e) {
+   return ("Erro na conexão: " . $oConexao->connect_error);
+}
