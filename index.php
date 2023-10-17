@@ -11,7 +11,6 @@
       require_once './matriz.php';
       require_once './djikstra.php';
           
-    // Consulta para buscar dados do banco de dados
     $sSelect = "SELECT ao.aer_sigla AS origem,
                        ad.aer_sigla AS destino,
                        MIN(tc.cus_valor) AS custo
@@ -24,20 +23,14 @@
      
     $oMatriz = new  MatrizCusto;
     $oMatriz->CriaMatriz($oConexao,$sSelect);
-   // echo print_r($oMatriz->getMatriz());
 
+    $dijkstra = new Dijkstra($oMatriz->getMatriz());
+    $inicio = 'RJ1';
+    $fim = 'PB';
 
+    $path = $dijkstra->Caminhos_Possiveis($inicio, $fim);
 
-// Exemplo de uso
-
-
-$dijkstra = new Dijkstra($oMatriz->getMatriz());
-$inicio = 'RO';
-$fim = 'AP';
-
-$path = $dijkstra->Caminho_Curto($inicio, $fim);
-
-echo "Caminho mais curto de $inicio para $fim: " . implode(' -> ', $path) . PHP_EOL;
+    $dijkstra->imprimirRotas($path);
 ?>
 </body>
 </html>

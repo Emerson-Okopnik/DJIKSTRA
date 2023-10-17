@@ -1,4 +1,5 @@
 <?php
+
 class Dijkstra
 {
     private $grafico;
@@ -8,67 +9,103 @@ class Dijkstra
         $this->grafico = $grafico;
     }
 
-    public function Caminho_Curto($inicio, $fim)
+
+    public function Caminhos_Possiveis($inicio, $fim)
     {
         $distancias = [];
         $anterior = [];
         $nao_visitado = [];
 
-        foreach ($this->grafico as $edge) {
-            $distancias[$edge['origem']] = INF;
-            $distancias[$edge['destino']] = INF;
-            $anterior[$edge['origem']] = null;
-            $anterior[$edge['destino']] = null;
-            $nao_visitado[] = $edge['origem'];
-            $nao_visitado[] = $edge['destino'];
+        foreach ($this->grafico as $aeroporto) {
+            $distancias[$aeroporto['origem']] = INF;
+            $distancias[$aeroporto['destino']] = INF;
+            $anterior[$aeroporto['origem']] = null;
+            $anterior[$aeroporto['destino']] = null;
+            $nao_visitado[] = $aeroporto['origem'];
+            $nao_visitado[] = $aeroporto['destino'];
         }
 
         $distancias[$inicio] = 0;
+        $caminhos = []; 
 
-        while (!empty($nao_visitado)) {
-            $minDistancia = INF;
-            $atual = null;
+        $this->EncontrarCaminhos($inicio, $fim, $distancias, $anterior, $caminhos, []);
 
-            foreach ($nao_visitado as $vertice) {
-                if ($distancias[$vertice] < $minDistancia) {
-                    $minDistancia = $distancias[$vertice];
-                    $atual = $vertice;
+        // Ordenar os caminhos com base no custo total
+        usort($caminhos, function ($a, $b) use ($distancias) {
+            $custoA = 0;
+            $custoB = 0;
+            for ($i = 0; $i < count($a) - 1; $i++) {
+                $origem = $a[$i];
+                $destino = $a[$i + 1];
+                foreach ($this->grafico as $aeroporto) {
+                    if ($aeroporto['origem'] == $origem && $aeroporto['destino'] == $destino) {
+                        $custoA += $aeroporto['custo'];
+                        break;
+                    }
                 }
             }
-
-            if ($atual === null) {
-                break;
+            for ($i = 0; $i < count($b) - 1; $i++) {
+                $origem = $b[$i];
+                $destino = $b[$i + 1];
+                foreach ($this->grafico as $aeroporto) {
+                    if ($aeroporto['origem'] == $origem && $aeroporto['destino'] == $destino) {
+                        $custoB += $aeroporto['custo'];
+                        break;
+                    }
+                }
             }
+            return $custoA - $custoB;
+        });
 
-            $key = array_search($atual, $nao_visitado);
-            if ($key !== false) {
-                unset($nao_visitado[$key]);
-            }
+        return $caminhos;
+    }
 
-            foreach ($this->grafico as $edge) {
-                if ($edge['origem'] == $atual) {
-                    $alt = $distancias[$atual] + $edge['custo'];
-                    if ($alt < $distancias[$edge['destino']]) {
-                        $distancias[$edge['destino']] = $alt;
-                        $anterior[$edge['destino']] = $atual;
+    private function EncontrarCaminhos($atual, $fim, $distancias, $anterior, &$caminhos, $caminhoAtual)
+    {
+        $caminhoAtual[] = $atual;
+
+        if ($atual === $fim) {
+            $caminhos[] = $caminhoAtual;
+        } else {
+            foreach ($this->grafico as $aeroporto) {
+                if ($aeroporto['origem'] == $atual && !in_array($aeroporto['destino'], $caminhoAtual)) {           //in_array procura um valor dentro do vetor
+                    $alt = $distancias[$atual] + $aeroporto['custo'];
+                    if ($alt <= $distancias[$aeroporto['destino']]) {
+                        $distancias[$aeroporto['destino']] = $alt;
+                        $anterior[$aeroporto['destino']] = $atual;
+                        $this->EncontrarCaminhos($aeroporto['destino'], $fim, $distancias, $anterior, $caminhos, $caminhoAtual);
                     }
                 }
             }
         }
+    } 
 
-        $path = [];
-        $atual = $fim;
 
-        while ($anterior[$atual] !== null) {
-            $path[] = $atual;
-            $atual = $anterior[$atual];
+    public function imprimirRotas($rotas) {
+        echo "Rotas possíveis do início ao fim, ordenadas da mais curta para a mais longa:\n";
+        foreach ($rotas as $index => $rota) {
+            $custoTotal = $this->calcularCustoTotal($rota);
+            echo "Rota " . ($index + 1) . ": " . implode(" -> ", $rota) . " - Custo Total: $custoTotal\n"."<br>";
         }
+    }
 
-        $path[] = $inicio;
-        $path = array_reverse($path);
-
-        return $path;
+    private function calcularCustoTotal($rota) {
+        $custoTotal = 0;
+        for ($i = 0; $i < count($rota) - 1; $i++) {
+            $origem = $rota[$i];
+            $destino = $rota[$i + 1];
+            foreach ($this->grafico as $aeroporto) {
+                if ($aeroporto['origem'] == $origem && $aeroporto['destino'] == $destino) {
+                    $custoTotal += $aeroporto['custo'];
+                    break;
+                }
+            }
+        }
+        return $custoTotal;
     }
 }
+
+
+
 
 
