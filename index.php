@@ -22,13 +22,13 @@
                  GROUP BY origem, destino";
 
 
-    foreach ($aResults as $aResult) {
+    /*foreach ($aResults as $aResult) {
       $novoPontoAeroporto = new PontoAeroporto();
       $novoPontoAeroporto->id = '';
       
-    }
+    }*/
     
-    
+
     if(isset($_POST['origem']) && isset($_POST['destino'])){
   
       $inicio = $_POST['origem'];
@@ -53,31 +53,31 @@
     $array2 = [];
     
 
-echo" <form action='index.php' method='post'>";
+  echo" <form action='index.php' method='post'>";
   //origem  
 
-  echo "<select name='origem'>";
-  echo " <option>Escolha...</option>";
+    echo "<select name='origem'>";
+    echo " <option>Escolha...</option>";
 
-  while($aResult = pg_fetch_assoc($oResult)) {
-    $array = $aResult;
-    echo "<option>{$array['origem']}</option>";
-  }  
-   echo "</select>";
-
-   //destino    
- 
-   echo "<select name='destino'>";
-   echo " <option>Escolha...</option>";
- 
-   while($aResult2 = pg_fetch_assoc($oResult2)) {
-     $array2 = $aResult2;
-     echo "<option>{$array2['destino']}</option>";
-   }  
+    while($aResult = pg_fetch_assoc($oResult)) {
+      $array = $aResult;
+      echo "<option>{$array['origem']}</option>";
+    }  
     echo "</select>";
+
+    //destino    
   
-    echo '<input type="submit" value="Enviar">';
-echo "</form>";
+    echo "<select name='destino'>";
+    echo " <option>Escolha...</option>";
+  
+    while($aResult2 = pg_fetch_assoc($oResult2)) {
+      $array2 = $aResult2;
+      echo "<option>{$array2['destino']}</option>";
+    }  
+      echo "</select>";
+    
+      echo '<input type="submit" value="Enviar">';
+  echo "</form>";
 
 
 ?>

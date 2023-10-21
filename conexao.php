@@ -14,5 +14,5 @@ $sConexao   = "host=$sHost
 try {
   $oConexao   = pg_connect($sConexao);
 } catch(Exception $e) {
-   return ("Erro na conexão: " . $oConexao->connect_error);
+   return ("Erro na conexão: " . $oConexao);
 }
