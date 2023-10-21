@@ -20,21 +20,29 @@
                   JOIN tbaeroporto AS ad ON 
                        tc.aer_id_des = ad.aer_id
                  GROUP BY origem, destino";
+
+
+    foreach ($aResults as $aResult) {
+      $novoPontoAeroporto = new PontoAeroporto();
+      $novoPontoAeroporto->id = '';
+      
+    }
+    
     
     if(isset($_POST['origem']) && isset($_POST['destino'])){
   
-    $inicio = $_POST['origem'];
-    $fim = $_POST['destino'];
+      $inicio = $_POST['origem'];
+      $fim = $_POST['destino'];
 
-    $oMatriz = new  MatrizCusto;
-    $oMatriz->CriaMatriz($oConexao,$sSelect);
+      $oMatriz = new  MatrizCusto;
+      $oMatriz->CriaMatriz($oConexao,$sSelect);
 
 
-    $dijkstra = new Dijkstra($oMatriz->getMatriz());
+      $dijkstra = new Dijkstra($oMatriz->getMatriz());
 
-    $path = $dijkstra->Caminhos_Possiveis($inicio, $fim);
+      $path = $dijkstra->Caminhos_Possiveis($inicio, $fim);
 
-    $dijkstra->imprimirRotas($path);
+      $dijkstra->imprimirRotas($path);
 
     }
 
