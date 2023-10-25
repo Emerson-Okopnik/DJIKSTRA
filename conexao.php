@@ -1,7 +1,7 @@
 <?php
 $sHost      = '127.0.0.1';
 $sPort      = '5432';
-$sDbName    = 'dijkstra';
+$sDbName    = 'DJIKSSTRA';
 $sUser      = 'postgres';
 $sPassword  = '123';
 
