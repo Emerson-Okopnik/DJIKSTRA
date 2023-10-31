@@ -7,11 +7,6 @@
 </head>
 <body>
     <?php
-
-      $teste = 1;
-
-      $teste = 1;
-
       require_once './conexao.php';
       require_once './matriz.php';
       require_once './djikstra.php';
