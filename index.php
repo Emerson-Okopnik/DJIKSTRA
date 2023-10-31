@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>DJIKSTRA</title>
 </head>
 <body>
@@ -42,7 +43,7 @@
 
       $path = $dijkstra->Caminhos_Possiveis($inicio, $fim);
 
-      $dijkstra->imprimirRotas($path);
+      
 
     }
 
@@ -79,9 +80,10 @@
       echo '<input type="submit" value="Enviar">';
   echo "</form>";
 
-
+  if(isset($_POST['origem']) && isset($_POST['destino'])){
+    
+    $dijkstra->imprimirRotas($path);
+  }  
 ?>
-
-
 </body>
 </html>

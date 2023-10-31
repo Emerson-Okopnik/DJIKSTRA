@@ -82,11 +82,14 @@ class Dijkstra
 
 
     public function imprimirRotas($rotas) {
-        echo "Rotas possíveis do início ao fim, ordenadas da mais curta para a mais longa:\n";
-        foreach ($rotas as $index => $rota) {
-            $custoTotal = $this->calcularCustoTotal($rota);
-            echo "Rota " . ($index + 1) . ": " . implode(" -> ", $rota) . " - Custo Total: $custoTotal\n"."<br>";
-        }
+
+  
+    echo "<select class='form-select' size='10' aria-label='Size 3 select example'>";
+    foreach ($rotas as $index => $rota) {
+        $custoTotal = $this->calcularCustoTotal($rota);
+        echo "<option class='custom-option'>Rota " . ($index + 1) . ": " . implode(" -> ", $rota) . " - Custo Total: $custoTotal\n"."</option>";
+    }    
+    echo "</select>";
     }
 
     private function calcularCustoTotal($rota) {
