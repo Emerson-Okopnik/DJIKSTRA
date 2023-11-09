@@ -10,9 +10,16 @@ $sConexao   = "host=$sHost
                dbname=$sDbName
                user=$sUser
                password=$sPassword";
+               
+               
+$oConexao   = pg_connect($sConexao);
 
-try {
-  $oConexao   = pg_connect($sConexao);
-} catch(Exception $e) {
-   return ("Erro na conexão: " . $oConexao);
+if (!$oConexao) {
+  die();
 }
+
+// try {
+//   $oConexao   = pg_connect($sConexao);
+// } catch(Exception $e) {
+//    return ("Erro na conexão: " . $oConexao);
+// }
