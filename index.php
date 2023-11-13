@@ -9,103 +9,147 @@
 </head>
 <body>
     <?php
-      include './conexao.php';
-      require_once './matriz.php';
-      require_once './djikstra.php';
+
+  require_once('djikstra.php');
           
-    $sSelect = "SELECT ao.aer_nome AS origem,
-                       ad.aer_nome AS destino,
-                       MIN(tc.cus_valor) AS custo
-                  FROM tbcusto AS tc
-                  JOIN tbaeroporto AS ao ON 
-                       tc.aer_id_ori = ao.aer_id
-                  JOIN tbaeroporto AS ad ON 
-                       tc.aer_id_des = ad.aer_id
-                 GROUP BY origem, destino";
+   
+  $Json = file_get_contents('aeroportos.json');
 
+  $aAeroportos = json_decode($Json,true);
 
-    /*foreach ($aResults as $aResult) {
-      $novoPontoAeroporto = new PontoAeroporto();
-      $novoPontoAeroporto->id = '';
-      
-    }*/
-    
+  //if(isset($_POST['origem']) && isset($_POST['destino'])){
 
-    if(isset($_POST['origem']) && isset($_POST['destino'])){
-  
-      $inicio = $_POST['origem'];
-      $fim = $_POST['destino'];
-
-      $oMatriz = new  MatrizCusto;
-      $oMatriz->CriaMatriz($oConexao,$sSelect);
-
-
-      $dijkstra = new Dijkstra($oMatriz->getMatriz());
-
-      $path = $dijkstra->Caminhos_Possiveis($inicio, $fim);
-
-      
-
+    $aPontos = [];
+    foreach ($aAeroportos as $aAeroporto) {
+      $oPonto = [
+        'aeroporto' => $aAeroporto['aeroporto'],
+        'vertice' => []
+      ];
+      $aConexoes = [];
+      foreach ($aAeroporto['vertice'] as $aConexao) {
+        $oConexao = [
+          'aeroporto' => $aConexao['aeroporto'],
+          'custo' => $aConexao['custo']
+        ];
+        array_push($aConexoes, $oConexao);
+      }
+      $oPonto['vertice'] = $aConexoes;
+      $aPontos[$oPonto['aeroporto']] = $oPonto;
     }
 
-    $oResult = pg_query($oConexao,$sSelect);
-    $array = []; 
+    $oDjikstra = new djikstra($aPontos, 'Aeroporto de Campina Grande', 'Aeroporto de Campo de Marte');
+    $oDjikstra->calcularCaminhos();
+    $aCaminhosValidos = $oDjikstra->caminhosValidos  ();
 
-    $oResult2 = pg_query($oConexao,$sSelect);
-    $array2 = [];
-    
+    usort($aCaminhosValidos, function($a, $b) {
+    return $a['distancia'] <=> $b['distancia'];
+  });
 
-  echo" <form action='index.php' method='post'>";
-  //origem  
+  echo 'Total de caminho: ' . count($aCaminhosValidos). '<br>';
 
-    echo "<select name='origem'>";
-    echo " <option>Escolha...</option>";
+  $aPrincipaisCaminhos = array_slice($aCaminhosValidos, 0, 2000);
 
-    while($aResult = pg_fetch_assoc($oResult)) {
-      $array = $aResult;
-      echo "<option>{$array['origem']}</option>";
-    }  
+  $num = 0  ;
+
+  echo "<table class='table table-striped table-bordered table-sm'>";
+    echo "<thead>"; 
+      echo "<tr>";
+      echo "<th scope='col'> Rota </th>";
+      echo "<th scope='col'> Caminho </th>";
+      echo "<th scope='col'> Valor </th>";
+      echo "</tr>";
+    echo "</thead>";
+    echo "<tbody>";
+  foreach ( $aCaminhosValidos as $valor) {
+    $num += 1;  
+    echo "<tr>";
+      echo "<td scope='row'>".$num."</td>";
+        echo "<td>".substr($valor['sequencia'], 1) . "</td>";
+        echo "<td>".$valor['distancia']."</td>";
+      echo "</tr>";
+  }    
+    echo "</tbody>";  
+  echo "</table>";
+//}
+
+
+/*echo" <form action='index.php' method='post'>";
+
+//origem  
+
+  echo "<select name='origem'>";
+  echo " <option>Escolha...</option>";
+
+  while($aResult = pg_fetch_assoc($oResult)) {
+    $array = $aResult;
+    echo "<option>{$array['origem']}</option>";
+  }  
+  echo "</select>";
+
+  //destino    
+
+  echo "<select name='destino'>";
+  echo " <option>Escolha...</option>";
+
+  while($aResult2 = pg_fetch_assoc($oResult2)) {
+    $array2 = $aResult2;
+    echo "<option>{$array2['destino']}</option>";
+  }  
     echo "</select>";
+  
+    echo '<input type="submit" value="Enviar">';
+echo "</form>";*/
 
-    //destino    
-  
-    echo "<select name='destino'>";
-    echo " <option>Escolha...</option>";
-  
-    while($aResult2 = pg_fetch_assoc($oResult2)) {
-      $array2 = $aResult2;
-      echo "<option>{$array2['destino']}</option>";
-    }  
-      echo "</select>";
-    
-      echo '<input type="submit" value="Enviar">';
-  echo "</form>";
 ?>
 
  
- <div>
-    <img src="imagens/mapa_do_Brasil.svg.png" alt="Mapa do Brasil" width="800">
-    <div class="aeroporto" style="left: 323px; top: 557px; background-color: rgb(213, 232, 212);"> RDSD</div>
-    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);"> QEQEQ</div>
+<!-- <div style="position:relative;">
+    <img src="https://www.infoescola.com/wp-content/uploads/2019/07/mapa-do-brasil-estados-branco-comlegenda.jpg" alt="Mapa do Brasil" width="800">
+    <div class="aeroporto" style="left: 370px; top: 537px; background-color: rgb(213, 232, 212);">DF</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">MT</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">GO2</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">MS</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">GO1</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">CE1</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">PE1</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">BA1</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">CE2</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">RN</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">SE</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">BA2</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">AL</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">PI</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">MA</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">PE2</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">PB</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">PA</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">AC</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">RO</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">RR</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">AP</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">AM</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">TO</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">SP1</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">SP2</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">SP5</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">RJ3</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">SP4</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">RJ2</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">MG1</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">MG3</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">ES</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">SP3</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">RJ1</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">MG2</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">PR1</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">SC1</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">SC2</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">RS1</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">RS2</div>
+    <div class="aeroporto" style="left: 256px; top: 356px; background-color: rgb(200, 232, 278);">PR2</div>
+
+
     <div class="ligacao" style="left: 289.5px; top: 456.5px; width: 289.5px; transform: rotate(71.37deg);"></div>
-  </div>
-
-<?php
-  if(isset($_POST['origem']) && isset($_POST['destino'])){
-
-    echo "<div class='container'>";
-      echo "<table class='table table-striped table-bordered table-sm'>";
-        echo "<thead>"; 
-          echo "<tr>";
-            echo "<th scope='col'> Rota </th>";
-            echo "<th scope='col'> Caminho </th>";
-            echo "<th scope='col'> Valor </th>";
-          echo "</tr>";
-        echo "</thead>";  
-      $dijkstra->imprimirRotas($path);
-      echo "</table>";
-    echo "</div>";  
-  }  
-?>
+  </div> -->
 </body>
 </html> 
