@@ -9,17 +9,20 @@
 </head>
 <body>
     <?php
-
-  require_once('djikstra.php');
+//Definir limite de memoria como 1gb
+ini_set('memory_limit', '2G');
+set_time_limit(0);
+  
+require_once('djikstra.php');
           
    
   $Json = file_get_contents('aeroportos.json');
 
   $aAeroportos = json_decode($Json,true);
 
-  //if(isset($_POST['origem']) && isset($_POST['destino'])){
+  if(isset($_POST['origem']) && isset($_POST['destino'])){
 
-    $aPontos = [];
+   $aPontos = [];
     foreach ($aAeroportos as $aAeroporto) {
       $oPonto = [
         'aeroporto' => $aAeroporto['aeroporto'],
@@ -37,7 +40,7 @@
       $aPontos[$oPonto['aeroporto']] = $oPonto;
     }
 
-    $oDjikstra = new djikstra($aPontos, 'Aeroporto de Campina Grande', 'Aeroporto de Campo de Marte');
+    $oDjikstra = new djikstra($aPontos, $_POST['origem'], $_POST['destino']);
     $oDjikstra->calcularCaminhos();
     $aCaminhosValidos = $oDjikstra->caminhosValidos  ();
 
@@ -47,7 +50,7 @@
 
   echo 'Total de caminho: ' . count($aCaminhosValidos). '<br>';
 
-  $aPrincipaisCaminhos = array_slice($aCaminhosValidos, 0, 2000);
+  $aMelhoresRotas = array_slice($aCaminhosValidos, 0, 5000);
 
   $num = 0  ;
 
@@ -60,7 +63,7 @@
       echo "</tr>";
     echo "</thead>";
     echo "<tbody>";
-  foreach ( $aCaminhosValidos as $valor) {
+  foreach ($aMelhoresRotas as $valor) {
     $num += 1;  
     echo "<tr>";
       echo "<td scope='row'>".$num."</td>";
@@ -70,19 +73,18 @@
   }    
     echo "</tbody>";  
   echo "</table>";
-//}
+}
 
 
-/*echo" <form action='index.php' method='post'>";
+echo" <form action='index.php' method='post'>";
 
 //origem  
 
   echo "<select name='origem'>";
   echo " <option>Escolha...</option>";
 
-  while($aResult = pg_fetch_assoc($oResult)) {
-    $array = $aResult;
-    echo "<option>{$array['origem']}</option>";
+  foreach ($aAeroportos as $registro) {
+    echo "<option>{$registro['aeroporto']}</option>";
   }  
   echo "</select>";
 
@@ -91,14 +93,13 @@
   echo "<select name='destino'>";
   echo " <option>Escolha...</option>";
 
-  while($aResult2 = pg_fetch_assoc($oResult2)) {
-    $array2 = $aResult2;
-    echo "<option>{$array2['destino']}</option>";
-  }  
-    echo "</select>";
+  foreach ($aAeroportos as $registro) {
+    echo "<option>{$registro['aeroporto']}</option>";
+  }
+  echo "</select>";
   
     echo '<input type="submit" value="Enviar">';
-echo "</form>";*/
+echo "</form>";
 
 ?>
 

@@ -1,330 +1,750 @@
 [
-    {
-      "aeroporto": "Aeroporto Brigadeiro Lysias Rodrigues",
-      "vertice": [
-        {"aeroporto": "Aeroporto Internacional de Boa Vista", "custo": 45},
-        {"aeroporto": "Aeroporto Internacional de Campinas/Viracopos", "custo": 15},
-        {"aeroporto": "Aeroporto Internacional de Florianópolis", "custo": 25},
-        {"aeroporto": "Aeroporto Internacional de Fortaleza", "custo": 15},
-        {"aeroporto": "Aeroporto Internacional de Goiânia", "custo": 10},
-        {"aeroporto": "Aeroporto Internacional de Salvador", "custo": 15},
-        {"aeroporto": "Aeroporto Internacional do Recife-Guararapes", "custo": 20},
-        {"aeroporto": "Aeroporto Santos Dumont", "custo": 20}
-      ]
-    },
-    {
-      "aeroporto": "Aeroporto de Anápolis",
-      "vertice": [
-        {"aeroporto": "Aeroporto Internacional de Confins", "custo": 10},
-        {"aeroporto": "Aeroporto Internacional de Macapá", "custo": 25}
-      ]
-    },
-    {
-      "aeroporto": "Aeroporto de Aracaju",
-      "vertice": [
-        {"aeroporto": "Aeroporto de Para de Minas", "custo": 15},
-        {"aeroporto": "Aeroporto Internacional de Boa Vista", "custo": 55}
-      ]
-    },
-    {
-      "aeroporto": "Aeroporto de Campina Grande",
-      "vertice": [
-        {"aeroporto": "Aeroporto de Linhares", "custo": 15},
-        {"aeroporto": "Aeroporto de Londrina", "custo": 30},
-        {"aeroporto": "Aeroporto de Teresina", "custo": 10},
-        {"aeroporto": "Aeroporto Internacional de Afonso Pena", "custo": 30},
-        {"aeroporto": "Aeroporto Internacional de Cuiabá", "custo": 35},
-        {"aeroporto": "Aeroporto Morada Nova de Minas Gerais", "custo": 20}
-      ]
-    },
-    {
-      "aeroporto": "Aeroporto de Campo de Marte",
-      "vertice": [
-        {"aeroporto": "Aeroporto Internacional de Goiânia", "custo": 10}
-      ]
-    },
-    {
-      "aeroporto": "Aeroporto de Congonhas",
-      "vertice": [
-        {"aeroporto": "Aeroporto Internacional de Porto Velho", "custo": 30}
-      ]
-    },
-    {
-      "aeroporto": "Aeroporto de Imperatriz (SBIZ)",
-      "vertice": [
-        {"aeroporto": "Aeroporto de Joinville", "custo": 30},
-        {"aeroporto": "Aeroporto de Para de Minas", "custo": 20},
-        {"aeroporto": "Aeroporto Internacional de Boa Vista", "custo": 35},
-        {"aeroporto": "Aeroporto Internacional de Macapá", "custo": 10},
-        {"aeroporto": "Aeroporto Internacional de São Paulo", "custo": 20}
-      ]
-    },
-    {
-      "aeroporto": "Aeroporto de Joinville",
-      "vertice": [
-        {"aeroporto": "Aeroporto de Imperatriz (SBIZ)", "custo": 30},
-        {"aeroporto": "Aeroporto Santos Dumont", "custo": 10}
-      ]
-    },
-    {
-      "aeroporto": "Aeroporto de Juazeiro do Norte",
-      "vertice": [
-        {"aeroporto": "Aeroporto Internacional de Pelotas", "custo": 40},
-        {"aeroporto": "Aeroporto Internacional de Porto Velho", "custo": 35}
-      ]
-    },
-    {
-      "aeroporto": "Aeroporto de Linhares",
-      "vertice": [
-        {"aeroporto": "Aeroporto de Campina Grande", "custo": 15},
-        {"aeroporto": "Aeroporto de Petrolina", "custo": 10}
-      ]
-    },
-    {
-      "aeroporto": "Aeroporto de Londrina",
-      "vertice": [
-        {"aeroporto": "Aeroporto de Campina Grande", "custo": 30},
-        {"aeroporto": "Aeroporto Internacional de Porto Velho", "custo": 25},
-        {"aeroporto": "Aeroporto Santos Dumont", "custo": 10}
-      ]
-    },
-    {
-      "aeroporto": "Aeroporto de Maceió",
-      "vertice": [
-        {"aeroporto": "Aeroporto Doutor Antônio Ribeiro Nogueira Junior", "custo": 25},
-        {"aeroporto": "Aeroporto Internacional de São Paulo", "custo": 25},
-        {"aeroporto": "Aeroporto Jacarepaguá", "custo": 20}
-      ]
-    },
-    {
-      "aeroporto": "Aeroporto Doutor Antônio Ribeiro Nogueira Junior",
-      "vertice": [
-        {"aeroporto": "Aeroporto de Maceió", "custo": 25},
-        {"aeroporto": "Aeroporto Internacional de Macapá", "custo": 35},
-        {"aeroporto": "Manaus Airport", "custo": 40}
-      ]
-    },
-    {
-      "aeroporto": "Aeroporto Internacional de Afonso Pena",
-      "vertice": [
-        {"aeroporto": "Aeroporto de Campina Grande", "custo": 30}
-      ]
-    },
-    {
-      "aeroporto": "Aeroporto Internacional de Belém",
-      "vertice": [
-        {"aeroporto": "Aeroporto de Petrolina", "custo": 15},
-        {"aeroporto": "Manaus Airport", "custo": 30}
-      ]
-    },
-    {
-      "aeroporto": "Aeroporto Internacional de Boa Vista",
-      "vertice": [
-        {"aeroporto": "Aeroporto Brigadeiro Lysias Rodrigues", "custo": 45},
-        {"aeroporto": "Aeroporto de Aracaju", "custo": 55},
-        {"aeroporto": "Aeroporto de Imperatriz (SBIZ)", "custo": 35},
-        {"aeroporto": "Aeroporto de Teresina", "custo": 45},
-        {"aeroporto": "Aeroporto Internacional de Cuiabá", "custo": 30},
-        {"aeroporto": "Aeroporto Internacional de Porto Alegre", "custo": 55}
-      ]
-    },
-    {
-      "aeroporto": "Aeroporto Internacional de Brasília",
-      "vertice": [
-        {"aeroporto": "Manaus Airport", "custo": 35}
-      ]
-    },
-    {
-      "aeroporto": "Aeroporto Internacional de Campinas/Viracopos",
-      "vertice": [
-        {"aeroporto": "Aeroporto Brigadeiro Lysias Rodrigues", "custo": 15}
-      ]
-    },
-        {
-          "aeroporto": "Aeroporto Internacional de Campo Grande",
-          "vertice": [
-            {"aeroporto": "Aeroporto de Para de Minas", "custo": 10},
-            {"aeroporto": "Aeroporto de Petrolina", "custo": 25}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto de Para de Minas",
-          "vertice": [
-            {"aeroporto": "Aeroporto Internacional de Confins", "custo": 10}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Internacional de Confins",
-          "vertice": [
-            {"aeroporto": "Aeroporto de Anápolis", "custo": 10},
-            {"aeroporto": "Aeroporto Internacional do Rio Branco", "custo": 35}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Internacional de Cuiabá",
-          "vertice": [
-            {"aeroporto": "Aeroporto de Campina Grande", "custo": 35},
-            {"aeroporto": "Aeroporto Internacional de Boa Vista", "custo": 30}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Internacional de Florianópolis",
-          "vertice": [
-            {"aeroporto": "Aeroporto Brigadeiro Lysias Rodrigues", "custo": 25},
-            {"aeroporto": "Aeroporto Internacional do Rio de Janeiro / Galeão", "custo": 10}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Internacional de Fortaleza",
-          "vertice": [
-            {"aeroporto": "Aeroporto Brigadeiro Lysias Rodrigues", "custo": 15}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Internacional de Goiânia",
-          "vertice": [
-            {"aeroporto": "Aeroporto Brigadeiro Lysias Rodrigues", "custo": 10},
-            {"aeroporto": "Aeroporto de Campo de Marte", "custo": 10},
-            {"aeroporto": "Aeroporto de Teresina", "custo": 20}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Internacional de Macapá",
-          "vertice": [
-            {"aeroporto": "Aeroporto de Anápolis", "custo": 25},
-            {"aeroporto": "Aeroporto de Imperatriz (SBIZ)", "custo": 10},
-            {"aeroporto": "Aeroporto Doutor Antônio Ribeiro Nogueira Junior", "custo": 35},
-            {"aeroporto": "Aeroporto Internacional de Natal", "custo": 25},
-            {"aeroporto": "Aeroporto Internacional de Porto Seguro", "custo": 35},
-            {"aeroporto": "Manaus Airport", "custo": 30}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Internacional de Natal",
-          "vertice": [
-            {"aeroporto": "Aeroporto Internacional de Macapá", "custo": 25},
-            {"aeroporto": "Manaus Airport", "custo": 45}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Internacional de Pelotas",
-          "vertice": [
-            {"aeroporto": "Aeroporto de Juazeiro do Norte", "custo": 40},
-            {"aeroporto": "Aeroporto de Para de Minas", "custo": 20},
-            {"aeroporto": "Manaus Airport", "custo": 45}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Internacional de Porto Alegre",
-          "vertice": [
-            {"aeroporto": "Aeroporto Internacional de Boa Vista", "custo": 55},
-            {"aeroporto": "Aeroporto Internacional do Rio Branco", "custo": 40},
-            {"aeroporto": "Manaus Airport", "custo": 45}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Internacional de Porto Seguro",
-          "vertice": [
-            {"aeroporto": "Aeroporto de Petrolina", "custo": 10},
-            {"aeroporto": "Aeroporto Internacional de Macapá", "custo": 35}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Internacional de Porto Velho",
-          "vertice": [
-            {"aeroporto": "Aeroporto de Congonhas", "custo": 30},
-            {"aeroporto": "Aeroporto de Juazeiro do Norte", "custo": 35},
-            {"aeroporto": "Aeroporto de Londrina", "custo": 25},
-            {"aeroporto": "Aeroporto Santos Dumont", "custo": 35},
-            {"aeroporto": "Manaus Airport", "custo": 10}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Internacional de Salvador",
-          "vertice": [
-            {"aeroporto": "Aeroporto Brigadeiro Lysias Rodrigues", "custo": 15}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Internacional de São Paulo",
-          "vertice": [
-            {"aeroporto": "Aeroporto de Imperatriz (SBIZ)", "custo": 20},
-            {"aeroporto": "Aeroporto de Maceió", "custo": 25}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Internacional do Recife-Guararapes",
-          "vertice": [
-            {"aeroporto": "Aeroporto Brigadeiro Lysias Rodrigues", "custo": 20}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Internacional do Rio Branco",
-          "vertice": [
-            {"aeroporto": "Aeroporto de Petrolina", "custo": 40},
-            {"aeroporto": "Aeroporto Internacional de Confins", "custo": 35},
-            {"aeroporto": "Aeroporto Internacional de Porto Alegre", "custo": 40}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Internacional do Rio de Janeiro / Galeão",
-          "vertice": [
-            {"aeroporto": "Aeroporto Internacional de Florianópolis", "custo": 10}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Jacarepaguá",
-          "vertice": [
-            {"aeroporto": "Aeroporto de Maceió", "custo": 20},
-            {"aeroporto": "Aeroporto de Para de Minas", "custo": 5}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Morada Nova de Minas Gerais",
-          "vertice": [
-            {"aeroporto": "Aeroporto de Campina Grande", "custo": 20},
-            {"aeroporto": "Aeroporto Santos Dumont", "custo": 5}
-          ]
-        },
-        {
-          "aeroporto": "Aeroporto Santos Dumont",
-          "vertice": [
-            {"aeroporto": "Aeroporto Brigadeiro Lysias Rodrigues", "custo": 20},
-            {"aeroporto": "Aeroporto de Joinville", "custo": 10},
-            {"aeroporto": "Aeroporto de Londrina", "custo": 10},
-            {"aeroporto": "Aeroporto Internacional de Porto Velho", "custo": 35},
-            {"aeroporto": "Aeroporto Morada Nova de Minas Gerais", "custo": 5}
-          ]
-        },
-        {
-          "aeroporto": "Manaus Airport",
-          "vertice": [
-            {"aeroporto": "Aeroporto Doutor Antônio Ribeiro Nogueira Junior", "custo": 40},
-            {"aeroporto": "Aeroporto Internacional de Belém", "custo": 30},
-            {"aeroporto": "Aeroporto Internacional de Brasília", "custo": 35},
-            {"aeroporto": "Aeroporto Internacional de Macapá", "custo": 30},
-            {"aeroporto": "Aeroporto Internacional de Natal", "custo": 45},
-            {"aeroporto": "Aeroporto Internacional de Pelotas", "custo": 45},
-            {"aeroporto": "Aeroporto Internacional de Porto Alegre", "custo": 45},
-            {"aeroporto": "Aeroporto Internacional de Porto Velho", "custo": 10}
-          ]
-        },{
-            "aeroporto": "Aeroporto de Petrolina",
-            "vertice": [
-              {"aeroporto": "Aeroporto de Linhares", "custo": 10},
-              {"aeroporto": "Aeroporto Internacional de Belém", "custo": 15},
-              {"aeroporto": "Aeroporto Internacional de Campo Grande", "custo": 25},
-              {"aeroporto":"Aeroporto Internacional de Porto Seguro", "custo": 10},
-              {"aeroporto": "Aeroporto Internacional do Rio Branco", "custo": 40}
-          ]
-        },{
-           "aeroporto": "Aeroporto de Teresina",
-            "vertice": [
-              {"aeroporto": "Aeroporto de Campina Grande", "custo": 10},
-              {"aeroporto": "Aeroporto Internacional de Boa Vista", "custo": 45},
-              {"aeroporto":"Aeroporto Internacional de Goiânia", "custo": 20}
-          ]
-        }
-      ]
-      
-      
+  {
+    "aeroporto": "RR1",
+    "vertice": [
+      {
+        "aeroporto": "PA1",
+        "custo": 6
+      },
+      {
+        "aeroporto": "SC3",
+        "custo": 4
+      }
+    ]
+  },
+  {
+    "aeroporto": "MA1",
+    "vertice": [
+      {
+        "aeroporto": "PA1",
+        "custo": 5
+      },
+      {
+        "aeroporto": "SC3",
+        "custo": 4
+      }
+    ]
+  },
+  {
+    "aeroporto": "PA1",
+    "vertice": [
+      {
+        "aeroporto": "RR1",
+        "custo": 6
+      },
+      {
+        "aeroporto": "MA1",
+        "custo": 5
+      },
+      {
+        "aeroporto": "AM1",
+        "custo": 7
+      },
+      {
+        "aeroporto": "TO1",
+        "custo": 5
+      },
+      {
+        "aeroporto": "PE1",
+        "custo": 7
+      },
+      {
+        "aeroporto": "SC2",
+        "custo": 10
+      }
+    ]
+  },
+  {
+    "aeroporto": "RR1",
+    "vertice": [
+      {
+        "aeroporto": "PA1",
+        "custo": 6
+      }
+    ]
+  },
+  {
+    "aeroporto": "MA1",
+    "vertice": [
+      {
+        "aeroporto": "PA1",
+        "custo": 5
+      },
+      {
+        "aeroporto": "SC3",
+        "custo": 4
+      },
+      {
+        "aeroporto": "TO1",
+        "custo": 4
+      }
+    ]
+  },
+  {
+    "aeroporto": "PA1",
+    "vertice": [
+      {
+        "aeroporto": "RR1",
+        "custo": 6
+      },
+      {
+        "aeroporto": "MA1",
+        "custo": 5
+      },
+      {
+        "aeroporto": "AM1",
+        "custo": 7
+      },
+      {
+        "aeroporto": "TO1",
+        "custo": 5
+      },
+      {
+        "aeroporto": "PE1",
+        "custo": 7
+      },
+      {
+        "aeroporto": "SC2",
+        "custo": 10
+      }
+    ]
+  },
+  {
+    "aeroporto": "AM1",
+    "vertice": [
+      {
+        "aeroporto": "PA1",
+        "custo": 7
+      }
+    ]
+  },
+  {
+    "aeroporto": "RO1",
+    "vertice": [
+      {
+        "aeroporto": "RS2",
+        "custo": 9
+      }
+    ]
+  },
+  {
+    "aeroporto": "MT1",
+    "vertice": [
+      {
+        "aeroporto": "TO1",
+        "custo": 4
+      },
+      {
+        "aeroporto": "GO2",
+        "custo": 7
+      },
+      {
+        "aeroporto": "DF1",
+        "custo": 7
+      }
+    ]
+  },
+  {
+    "aeroporto": "TO1",
+    "vertice": [
+      {
+        "aeroporto": "PA1",
+        "custo": 5
+      },
+      {
+        "aeroporto": "MT1",
+        "custo": 4
+      },
+      {
+        "aeroporto": "DF1",
+        "custo": 3
+      }
+    ]
+  },
+  {
+    "aeroporto": "PI1",
+    "vertice": [
+      {
+        "aeroporto": "BA1",
+        "custo": 2
+      }
+    ]
+  },
+  {
+    "aeroporto": "PE1",
+    "vertice": [
+      {
+        "aeroporto": "PA1",
+        "custo": 7
+      },
+      {
+        "aeroporto": "PE2",
+        "custo": 1
+      },
+      {
+        "aeroporto": "BA1",
+        "custo": 3
+      }
+    ]
+  },
+  {
+    "aeroporto": "PE2",
+    "vertice": [
+      {
+        "aeroporto": "PE1",
+        "custo": 1
+      },
+      {
+        "aeroporto": "BA1",
+        "custo": 5
+      },
+      {
+        "aeroporto": "RJ1",
+        "custo": 9
+      }
+    ]
+  },
+  {
+    "aeroporto": "SE1",
+    "vertice": [
+      {
+        "aeroporto": "BA2",
+        "custo": 4
+      }
+    ]
+  },
+  {
+    "aeroporto": "BA1",
+    "vertice": [
+      {
+        "aeroporto": "PI1",
+        "custo": 2
+      },
+      {
+        "aeroporto": "PE1",
+        "custo": 3
+      },
+      {
+        "aeroporto": "PE2",
+        "custo": 5
+      },
+      {
+        "aeroporto": "DF1",
+        "custo": 4
+      },
+      {
+        "aeroporto": "BA2",
+        "custo": 3
+      }
+    ]
+  },
+  {
+    "aeroporto": "GO2",
+    "vertice": [
+      {
+        "aeroporto": "MT1",
+        "custo": 7
+      },
+      {
+        "aeroporto": "GO1",
+        "custo": 1
+      },
+      {
+        "aeroporto": "MS1",
+        "custo": 6
+      },
+      {
+        "aeroporto": "SP5",
+        "custo": 7
+      }
+    ]
+  },
+  {
+    "aeroporto": "GO2",
+    "vertice": [
+      {
+        "aeroporto": "MT1",
+        "custo": 7
+      },
+      {
+        "aeroporto": "GO1",
+        "custo": 1
+      },
+      {
+        "aeroporto": "MS1",
+        "custo": 6
+      },
+      {
+        "aeroporto": "SP5",
+        "custo": 7
+      }
+    ]
+  },
+  {
+    "aeroporto": "DF1",
+    "vertice": [
+      {
+        "aeroporto": "MT1",
+        "custo": 7
+      },
+      {
+        "aeroporto": "PI1",
+        "custo": 3
+      },
+      {
+        "aeroporto": "BA1",
+        "custo": 4
+      },
+      {
+        "aeroporto": "MG1",
+        "custo": 1
+      },
+      {
+        "aeroporto": "MG2",
+        "custo": 4
+      },
+      {
+        "aeroporto": "SP2",
+        "custo": 6
+      },
+      {
+        "aeroporto": "BA2",
+        "custo": 6
+      }
+    ]
+  },
+  {
+    "aeroporto": "MG1",
+    "vertice": [
+      {
+        "aeroporto": "DF1",
+        "custo": 1
+      }
+    ]
+  },
+  {
+    "aeroporto": "MG3",
+    "vertice": [
+      {
+        "aeroporto": "RJ1",
+        "custo": 4
+      },
+      {
+        "aeroporto": "RJ2",
+        "custo": 5
+      }
+    ]
+  },
+  {
+    "aeroporto": "ES1",
+    "vertice": [
+      {
+        "aeroporto": "RJ1",
+        "custo": 5
+      }
+    ]
+  },
+  {
+    "aeroporto": "MG2",
+    "vertice": [
+      {
+        "aeroporto": "DF1",
+        "custo": 4
+      },
+      {
+        "aeroporto": "RJ1",
+        "custo": 6
+      }
+    ]
+  },
+  {
+    "aeroporto": "GO1",
+    "vertice": [
+      {
+        "aeroporto": "GO2",
+        "custo": 1
+      },
+      {
+        "aeroporto": "SP1",
+        "custo": 5
+      }
+    ]
+  },
+  {
+    "aeroporto": "RJ1",
+    "vertice": [
+      {
+        "aeroporto": "PE2",
+        "custo": 9
+      },
+      {
+        "aeroporto": "MG3",
+        "custo": 4
+      },
+      {
+        "aeroporto": "ES1",
+        "custo": 5
+      },
+      {
+        "aeroporto": "MG2",
+        "custo": 6
+      }
+    ]
+  },
+  {
+    "aeroporto": "RJ3",
+    "vertice": [
+      {
+        "aeroporto": "RS2",
+        "custo": 5
+      },
+      {
+        "aeroporto": "SC3",
+        "custo": 4
+      },
+      {
+        "aeroporto": "MG3",
+        "custo": 4
+      }
+    ]
+  },
+  {
+    "aeroporto": "RJ2",
+    "vertice": [
+      {
+        "aeroporto": "MG3",
+        "custo": 5
+      },
+      {
+        "aeroporto": "SP5",
+        "custo": 6
+      },
+      {
+        "aeroporto": "RS3",
+        "custo": 4
+      }
+    ]
+  },
+  {
+    "aeroporto": "SP2",
+    "vertice": [
+      {
+        "aeroporto": "DF1",
+        "custo": 6
+      },
+      {
+        "aeroporto": "SP5",
+        "custo": 2
+      }
+    ]
+  },
+  {
+    "aeroporto": "SP1",
+    "vertice": [
+      {
+        "aeroporto": "GO1",
+        "custo": 5
+      },
+      {
+        "aeroporto": "MS1",
+        "custo": 4
+      },
+      {
+        "aeroporto": "SP4",
+        "custo": 1
+      }
+    ]
+  },
+  {
+    "aeroporto": "MS1",
+    "vertice": [
+      {
+        "aeroporto": "GO2",
+        "custo": 6
+      },
+      {
+        "aeroporto": "SP1",
+        "custo": 4
+      },
+      {
+        "aeroporto": "SC2",
+        "custo": 6
+      }
+    ]
+  },
+  {
+    "aeroporto": "PR2",
+    "vertice": [
+      {
+        "aeroporto": "PR1",
+        "custo": 1
+      },
+      {
+        "aeroporto": "SC2",
+        "custo": 2
+      },
+      {
+        "aeroporto": "RS3",
+        "custo": 4
+      }
+    ]
+  },
+  {
+    "aeroporto": "SP4",
+    "vertice": [
+      {
+        "aeroporto": "SP1",
+        "custo": 4
+      },
+      {
+        "aeroporto": "SP5",
+        "custo": 4
+      },
+      {
+        "aeroporto": "PR1",
+        "custo": 3
+      }
+    ]
+  },
+  {
+    "aeroporto": "SP5",
+    "vertice": [
+      {
+        "aeroporto": "GO2",
+        "custo": 7
+      },
+      {
+        "aeroporto": "RJ2",
+        "custo": 6
+      },
+      {
+        "aeroporto": "SP2",
+        "custo": 2
+      },
+      {
+        "aeroporto": "SP4",
+        "custo": 4
+      },
+      {
+        "aeroporto": "PR1",
+        "custo": 3
+      },
+      {
+        "aeroporto": "SC1",
+        "custo": 7
+      },
+      {
+        "aeroporto": "BA2",
+        "custo": 8
+      }
+    ]
+  },
+  {
+    "aeroporto": "PR1",
+    "vertice": [
+      {
+        "aeroporto": "PR2",
+        "custo": 1
+      },
+      {
+        "aeroporto": "SP4",
+        "custo": 3
+      },
+      {
+        "aeroporto": "SP5",
+        "custo": 3
+      },
+      {
+        "aeroporto": "RS2",
+        "custo": 4
+      },
+      {
+        "aeroporto": "RS3",
+        "custo": 4
+      }
+    ]
+  },
+  {
+    "aeroporto": "SC2",
+    "vertice": [
+      {
+        "aeroporto": "PA1",
+        "custo": 10
+      },
+      {
+        "aeroporto": "MS1",
+        "custo": 6
+      },
+      {
+        "aeroporto": "PR2",
+        "custo": 2
+      },
+      {
+        "aeroporto": "RS1",
+        "custo": 1
+      },
+      {
+        "aeroporto": "RS2",
+        "custo": 3
+      }
+    ]
+  },
+  {
+    "aeroporto": "RS1",
+    "vertice": [
+      {
+        "aeroporto": "SC2",
+        "custo": 1
+      },
+      {
+        "aeroporto": "RS2",
+        "custo": 1
+      },
+      {
+        "aeroporto": "RS3",
+        "custo": 4
+      },
+      {
+        "aeroporto": "SC3",
+        "custo": 4
+      }
+    ]
+  },
+  {
+    "aeroporto": "RS2",
+    "vertice": [
+      {
+        "aeroporto": "RO1",
+        "custo": 9
+      },
+      {
+        "aeroporto": "RJ3",
+        "custo": 5
+      },
+      {
+        "aeroporto": "PR1",
+        "custo": 4
+      },
+      {
+        "aeroporto": "SC2",
+        "custo": 3
+      },
+      {
+        "aeroporto": "SC1",
+        "custo": 2
+      },
+      {
+        "aeroporto": "RS1",
+        "custo": 1
+      },
+      {
+        "aeroporto": "SC3",
+        "custo": 4
+      }
+    ]
+  },
+  {
+    "aeroporto": "BA2",
+    "vertice": [
+      {
+        "aeroporto": "SE1",
+        "custo": 4
+      },
+      {
+        "aeroporto": "BA1",
+        "custo": 3
+      },
+      {
+        "aeroporto": "DF1",
+        "custo": 6
+      },
+      {
+        "aeroporto": "SP5",
+        "custo": 8
+      }
+    ]
+  },
+  {
+    "aeroporto": "SC1",
+    "vertice": [
+      {
+        "aeroporto": "SP5",
+        "custo": 7
+      },
+      {
+        "aeroporto": "RS2",
+        "custo": 2
+      },
+      {
+        "aeroporto": "BA1",
+        "custo": 3
+      },
+      {
+        "aeroporto": "DF1",
+        "custo": 6
+      },
+      {
+        "aeroporto": "GO2",
+        "custo": 7
+      }
+    ]
+  },
+  {
+    "aeroporto": "SC3",
+    "vertice": [
+      {
+        "aeroporto": "SP1",
+        "custo": 7
+      },
+      {
+        "aeroporto": "RS1",
+        "custo": 2
+      },
+      {
+        "aeroporto": "BA2",
+        "custo": 3
+      },
+      {
+        "aeroporto": "DF1",
+        "custo": 6
+      },
+      {
+        "aeroporto": "GO1",
+        "custo": 7
+      }
+    ]
+  },
+  {
+    "aeroporto": "RS3",
+    "vertice": [
+      {
+        "aeroporto": "PA1",
+        "custo": 5
+      },
+      {
+        "aeroporto": "MT1",
+        "custo": 4
+      },
+      {
+        "aeroporto": "BA2",
+        "custo": 3
+      },
+      {
+        "aeroporto": "DF1",
+        "custo": 6
+      },
+      {
+        "aeroporto": "GO1",
+        "custo": 7
+      },
+      {
+        "aeroporto": "SC3",
+        "custo": 4
+      },
+      {
+        "aeroporto": "TO1",
+        "custo": 4
+      }
+    ]
+  }
+]
