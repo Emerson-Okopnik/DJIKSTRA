@@ -9,57 +9,10 @@
       {
         "aeroporto": "SC3",
         "custo": 4
-      }
-    ]
-  },
-  {
-    "aeroporto": "MA1",
-    "vertice": [
-      {
-        "aeroporto": "PA1",
-        "custo": 5
-      },
-      {
-        "aeroporto": "SC3",
-        "custo": 4
-      }
-    ]
-  },
-  {
-    "aeroporto": "PA1",
-    "vertice": [
-      {
-        "aeroporto": "RR1",
-        "custo": 6
-      },
-      {
-        "aeroporto": "MA1",
-        "custo": 5
-      },
-      {
-        "aeroporto": "AM1",
-        "custo": 7
       },
       {
         "aeroporto": "TO1",
-        "custo": 5
-      },
-      {
-        "aeroporto": "PE1",
-        "custo": 7
-      },
-      {
-        "aeroporto": "SC2",
-        "custo": 10
-      }
-    ]
-  },
-  {
-    "aeroporto": "RR1",
-    "vertice": [
-      {
-        "aeroporto": "PA1",
-        "custo": 6
+        "custo": 4
       }
     ]
   },
@@ -77,6 +30,9 @@
       {
         "aeroporto": "TO1",
         "custo": 4
+      },{
+        "aeroporto": "AM2",
+        "custo": 7
       }
     ]
   },
@@ -115,6 +71,13 @@
       {
         "aeroporto": "PA1",
         "custo": 7
+      },{
+        "aeroporto": "AM2",
+        "custo": 7
+      },
+      {
+        "aeroporto": "TO1",
+        "custo": 4
       }
     ]
   },
@@ -140,6 +103,9 @@
       },
       {
         "aeroporto": "DF1",
+        "custo": 7
+      },{
+        "aeroporto": "AM2",
         "custo": 7
       }
     ]
@@ -167,6 +133,13 @@
       {
         "aeroporto": "BA1",
         "custo": 2
+      },{
+        "aeroporto": "AM2",
+        "custo": 7
+      },
+      {
+        "aeroporto": "PE2",
+        "custo": 1
       }
     ]
   },
@@ -210,6 +183,12 @@
       {
         "aeroporto": "BA2",
         "custo": 4
+      },{
+        "aeroporto": "AM2",
+        "custo": 7
+      },{
+        "aeroporto": "RJ1",
+        "custo": 7
       }
     ]
   },
@@ -256,11 +235,14 @@
       {
         "aeroporto": "SP5",
         "custo": 7
+      },{
+        "aeroporto": "AM2",
+        "custo": 7
       }
     ]
   },
   {
-    "aeroporto": "GO2",
+    "aeroporto": "AM2",
     "vertice": [
       {
         "aeroporto": "MT1",
