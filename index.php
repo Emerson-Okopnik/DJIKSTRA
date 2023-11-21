@@ -21,59 +21,62 @@ require_once('djikstra.php');
   $aAeroportos = json_decode($Json,true);
 
   if(isset($_POST['origem']) && isset($_POST['destino'])){
+    if($_POST['origem'] === 'Escolha...' || $_POST['destino'] === 'Escolha...'){
+      echo "<p> Informe valores válidos </p>";
+    } else {
+        $aPontos = [];
+          foreach ($aAeroportos as $aAeroporto) {
+            $oPonto = [
+              'aeroporto' => $aAeroporto['aeroporto'],
+              'vertice' => []
+            ];
+            $aConexoes = [];
+            foreach ($aAeroporto['vertice'] as $aConexao) {
+              $oConexao = [
+                'aeroporto' => $aConexao['aeroporto'],
+                'custo' => $aConexao['custo']
+              ];
+              array_push($aConexoes, $oConexao);
+            }
+            $oPonto['vertice'] = $aConexoes;
+            $aPontos[$oPonto['aeroporto']] = $oPonto;
+        } 
 
-   $aPontos = [];
-    foreach ($aAeroportos as $aAeroporto) {
-      $oPonto = [
-        'aeroporto' => $aAeroporto['aeroporto'],
-        'vertice' => []
-      ];
-      $aConexoes = [];
-      foreach ($aAeroporto['vertice'] as $aConexao) {
-        $oConexao = [
-          'aeroporto' => $aConexao['aeroporto'],
-          'custo' => $aConexao['custo']
-        ];
-        array_push($aConexoes, $oConexao);
-      }
-      $oPonto['vertice'] = $aConexoes;
-      $aPontos[$oPonto['aeroporto']] = $oPonto;
-    }
+        $oDjikstra = new djikstra($aPontos, $_POST['origem'], $_POST['destino']);
+        $oDjikstra->calcularCaminhos();
+        $aCaminhosValidos = $oDjikstra->caminhosValidos ();
 
-    $oDjikstra = new djikstra($aPontos, $_POST['origem'], $_POST['destino']);
-    $oDjikstra->calcularCaminhos();
-    $aCaminhosValidos = $oDjikstra->caminhosValidos ();
+        usort($aCaminhosValidos, function($a, $b) {
+        return $a['distancia'] <=> $b['distancia'];
+        });
+    
+      echo 'Total de caminho: ' . count($aCaminhosValidos). '<br>';
 
-    usort($aCaminhosValidos, function($a, $b) {
-    return $a['distancia'] <=> $b['distancia'];
-  });
+      $aMelhoresRotas = array_slice($aCaminhosValidos, 0, 5000);
 
-  echo 'Total de caminho: ' . count($aCaminhosValidos). '<br>';
-
-  $aMelhoresRotas = array_slice($aCaminhosValidos, 0, 5000);
-
-  $num = 0;
-  echo "<div class='tabela-result'>";
-    echo "<table class='table table-striped table-bordered table-sm' id='tabela'>";
-      echo "<thead>"; 
-        echo "<tr>";
-        echo "<th scope='col'> Rota </th>";
-        echo "<th scope='col'> Caminho </th>";
-        echo "<th scope='col'> Valor </th>";
-        echo "</tr>";
-      echo "</thead>";
-      echo "<tbody>";
-      foreach ($aMelhoresRotas as $valor) {
-      $num += 1;  
-      echo "<tr>";
-        echo "<td scope='row'>".$num."</td>";
-          echo "<td>".substr($valor['sequencia'], 1) . "</td>";
-          echo "<td>".$valor['distancia']."</td>";
-        echo "</tr>";
+      $num = 0;
+      echo "<div class='tabela-result'>";
+        echo "<table class='table table-striped table-bordered table-sm' id='tabela'>";
+          echo "<thead>"; 
+            echo "<tr>";
+            echo "<th scope='col'> Rota </th>";
+            echo "<th scope='col'> Caminho </th>";
+            echo "<th scope='col'> Valor </th>";
+            echo "</tr>";
+          echo "</thead>";
+          echo "<tbody>";
+          foreach ($aMelhoresRotas as $valor) {
+          $num += 1;  
+          echo "<tr>";
+            echo "<td scope='row'>".$num."</td>";
+              echo "<td>".substr($valor['sequencia'], 1) . "</td>";
+              echo "<td>".$valor['distancia']."</td>";
+            echo "</tr>";
+        }  
+          echo "</tbody>";  
+        echo "</table>";
+      echo "</div>";
     }  
-      echo "</tbody>";  
-    echo "</table>";
-  echo "</div>";
 }
 
 if(!isset($_POST['origem']) && !isset($_POST['destino'])){
