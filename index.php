@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <title>DJIKSTRA</title>
 </head>
-<body>
+<body style='margin: 1%;'>
     <?php
+//Emerson e Andriely
 //Definir limite de memoria como 1gb
 ini_set('memory_limit', '3G');
 set_time_limit(0);
@@ -22,12 +23,10 @@ require_once('djikstra.php');
 
   if(isset($_POST['origem']) && isset($_POST['destino'])){
     if($_POST['origem'] === 'Escolha...' || $_POST['destino'] === 'Escolha...'){
-      echo '<body style="margin: 1%">';
-        echo '<div class="alert alert-danger" role="alert" style="width: 30%">';
-          echo "Informe valores válidos!";
-        echo '</div>';
-        echo '<a class="btn btn-outline-danger" style="color: black;" href="index.php">Retornar</a>';
-      echo '</body>';
+      echo '<div class="alert alert-danger" role="alert" style="width: 30%">';
+        echo "Informe valores válidos!";
+      echo '</div>';
+      echo '<a class="btn btn-outline-danger" style="color: black;" href="index.php">Retornar</a>';
     } else {
         $aPontos = [];
           foreach ($aAeroportos as $aAeroporto) {
@@ -90,7 +89,6 @@ require_once('djikstra.php');
 }
 
 if(!isset($_POST['origem']) && !isset($_POST['destino'])){
-  echo"<body style='margin: 1%;'>";
     echo" <form action='index.php' method='post'>";
 
     //origem  
@@ -116,7 +114,6 @@ if(!isset($_POST['origem']) && !isset($_POST['destino'])){
       
         echo '<input type="submit" class="btn btn-outline-primary" style="color: black;" value="Enviar">';
     echo "</form>";
-  echo "</body>";
 
 }
 ?>
