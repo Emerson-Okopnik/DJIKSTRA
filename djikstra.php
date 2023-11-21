@@ -38,7 +38,7 @@ class djikstra {
         }
 
         foreach ($this->caminho[$inicio]['vertice'] as $con) {
-            if (strpos($rota['sequencia'], $con['aeroporto']) !== false || $rota['distancia'] + $con['custo'] > 1000) {
+            if (strpos($rota['sequencia'], $con['aeroporto']) !== false || $rota['distancia'] + $con['custo'] > 80) {
                 continue;
               }
 
