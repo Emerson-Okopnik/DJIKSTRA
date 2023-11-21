@@ -22,7 +22,12 @@ require_once('djikstra.php');
 
   if(isset($_POST['origem']) && isset($_POST['destino'])){
     if($_POST['origem'] === 'Escolha...' || $_POST['destino'] === 'Escolha...'){
-      echo "<p> Informe valores válidos </p>";
+      echo '<body style="margin: 1%">';
+        echo '<div class="alert alert-danger" role="alert" style="width: 30%">';
+          echo "Informe valores válidos!";
+        echo '</div>';
+        echo '<a class="btn btn-outline-danger" style="color: black;" href="index.php">Retornar</a>';
+      echo '</body>';
     } else {
         $aPontos = [];
           foreach ($aAeroportos as $aAeroporto) {
@@ -49,61 +54,70 @@ require_once('djikstra.php');
         usort($aCaminhosValidos, function($a, $b) {
         return $a['distancia'] <=> $b['distancia'];
         });
-    
-      echo 'Total de caminho: ' . count($aCaminhosValidos). '<br>';
+      
+      echo '<div style="margin: 1%">';
+        echo '<div class="border border-secondary" style="margin-bottom: 1%; width: 30%">';
+          echo 'Total de caminho: ' . count($aCaminhosValidos). '<br>';
+        echo '</div>';
 
-      $aMelhoresRotas = array_slice($aCaminhosValidos, 0, 5000);
+        $aMelhoresRotas = array_slice($aCaminhosValidos, 0, 5000);
 
-      $num = 0;
-      echo "<div class='tabela-result'>";
-        echo "<table class='table table-striped table-bordered table-sm' id='tabela'>";
-          echo "<thead>"; 
+        $num = 0;
+        echo "<div class='tabela-result'>";
+          echo "<table class='table table-striped table-bordered table-sm' id='tabela'>";
+            echo "<thead>"; 
+              echo "<tr>";
+              echo "<th scope='col'> Rota </th>";
+              echo "<th scope='col'> Caminho </th>";
+              echo "<th scope='col'> Valor </th>";
+              echo "</tr>";
+            echo "</thead>";
+            echo "<tbody>";
+            foreach ($aMelhoresRotas as $valor) {
+            $num += 1;  
             echo "<tr>";
-            echo "<th scope='col'> Rota </th>";
-            echo "<th scope='col'> Caminho </th>";
-            echo "<th scope='col'> Valor </th>";
-            echo "</tr>";
-          echo "</thead>";
-          echo "<tbody>";
-          foreach ($aMelhoresRotas as $valor) {
-          $num += 1;  
-          echo "<tr>";
-            echo "<td scope='row'>".$num."</td>";
-              echo "<td>".substr($valor['sequencia'], 1) . "</td>";
-              echo "<td>".$valor['distancia']."</td>";
-            echo "</tr>";
-        }  
-          echo "</tbody>";  
-        echo "</table>";
-      echo "</div>";
+              echo "<td scope='row'>".$num."</td>";
+                echo "<td>".substr($valor['sequencia'], 1) . "</td>";
+                echo "<td>".$valor['distancia']."</td>";
+              echo "</tr>";
+          }  
+            echo "</tbody>";  
+          echo "</table>";
+        echo "</div>";
+        echo '<a class="btn btn-outline-primary" style="color: black; margin-top: 2%;" href="index.php">Retornar</a>';
+      echo '</div>';
     }  
 }
 
 if(!isset($_POST['origem']) && !isset($_POST['destino'])){
-  echo" <form action='index.php' method='post'>";
+  echo"<body style='margin: 1%;'>";
+    echo" <form action='index.php' method='post'>";
 
-  //origem  
+    //origem  
 
-    echo "<select name='origem'>";
-    echo " <option>Escolha...</option>";
+      echo '<label for="origem" class="form-label">Selecione sua origem</label>';
+      echo '<select name="origem" class="form-control" style="margin-bottom: 1%; width: 30%" id="origem">';
+      echo " <option>Escolha...</option>";
 
-    foreach ($aAeroportos as $registro) {
-      echo "<option>{$registro['aeroporto']}</option>";
-    }  
-    echo "</select>";
+      foreach ($aAeroportos as $registro) {
+        echo "<option>{$registro['aeroporto']}</option>";
+      }  
+      echo "</select>";
 
-    //destino    
+      //destino    
+      echo '<label for="destino" class="form-label">Selecione seu destino</label>';
+      echo '<select name="destino" class="form-control" style="margin-bottom: 1%; width: 30%" id="destino">';
+      echo " <option>Escolha...</option>";
 
-    echo "<select name='destino'>";
-    echo " <option>Escolha...</option>";
+      foreach ($aAeroportos as $registro) {
+        echo "<option>{$registro['aeroporto']}</option>";
+      }
+      echo "</select>";
+      
+        echo '<input type="submit" class="btn btn-outline-primary" style="color: black;" value="Enviar">';
+    echo "</form>";
+  echo "</body>";
 
-    foreach ($aAeroportos as $registro) {
-      echo "<option>{$registro['aeroporto']}</option>";
-    }
-    echo "</select>";
-    
-      echo '<input type="submit" value="Enviar">';
-  echo "</form>";
 }
 ?>
 </body>
